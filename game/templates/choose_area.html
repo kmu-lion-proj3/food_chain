@@ -30,22 +30,6 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-        </div> -->
     </nav>
 
     <div class="container">
@@ -53,75 +37,100 @@
             <h1>들어갈 지역을 고르세요</h1>
         </div>
         <div class="list_area">
-            <div class="card" style=" margin:auto ; width: 100%;">
-                <div class="card-body">
-                    <br>
-                    <br>
-                    <br>
-                    <a href="#" class="card-link">하늘</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </div>
-            </div>
-
-            
-                <div class="card" style="float: left; width: 100%;">
-                    <div class="card-body">
-                        <br>
-                        <br>
-                        <br>
-                        <a href="#" class="card-link">강</a>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+            <div class="빈 grid"></div>
+            <!-- 하늘 사진 -->
+            <div class="area">
+                <div class="area-image">
+                    <div class="card" style=" margin:auto ; width: 100%;">
+                        <img src="../image/area/sky2.jpg" class="card-img-top" alt="...">
                     </div>
                 </div>
-        
-            <div class="card" style="float:right;  width: 100%; ">
-                <div class="card-body">
-                    <br>
-                    <br>
-                    <br>
-                    <a href="#" class="card-link">들</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                <div class="area-text">
+                    <a href="">SKY</a>
                 </div>
             </div>
-            <div class="card" style="float:left; width: 100%; ">
-                <div class="card-body">
-                    <br>
-                    <br>
-                    <br>
-                    <a href="#" class="card-link">숲</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+            <!-- 강 사진 -->
+            <div class="area">
+                <div class="area-image">
+                    <div class="card" style="float: left; width: 100%;">
+                        <img src="../image/area/river2.jpg" class="card-img-top" alt="...">
+                    </div>
+                </div>
+                <div class="area-text">
+                    <a href="">RIVER</a>
+                </div>
+            </div>
+            <div class="빈 grid"></div>
+        </div>
+        <div class="list_area">
+            <div class="빈 grid"></div>
+            <!-- 들 사진 -->
+            <div class="area">
+                <div class="area-image">
+                    <div class="card" style="float:right;  width: 100%; ">
+                        <img src="../image/area/field2.jpg" class="card-img-top" alt="...">
+                    </div>
+                </div>
+                <div class="area-text">
+                    <a href="">FIELD</a>
+                </div>
+            </div>
+            <!-- 숲 사진 -->
+            <div class="area">
+                <div class="area-image">
+                    <div class="card" style="float:left; width: 100%; ">
+                        <img src="../image/area/forest2.jpg" class="card-img-top" alt="...">
+                    </div>
+                </div>
+                <div class="area-text">
+                    <a href="">FOREST</a>
                 </div>
             </div>
         </div>
+        <div class="빈 grid"></div>
+    </div>
     </div>
 </body>
 
 <style>
     .choose_area {
-        padding-top: 50px;
+        padding-top: 20px;
         text-align: center;
-        padding-bottom: 100px;
+        padding-bottom: 20px;
     }
+
     .choose_area h1 {
         font-size: 2rem;
     }
+
     .list_area {
         text-align: center;
         font-size: 18px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 10% 40% 40% 10%;
+    }
+
+    .area {
+        width: 100%;
+        position: relative;
+    }
+
+    .area-image {
+        vertical-align: middle;
+    }
+
+    .area-text {
+        padding: 5px 10px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+        color:white;
+        font-size: 35px;
+    }
+    a{
+        all: unset;
     }
 </style>
 
