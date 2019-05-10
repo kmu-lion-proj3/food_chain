@@ -48,9 +48,48 @@
     </nav>
 
     <div class="container">
-        <!-- 누가누구를 찍었는지 보여줌 -->
-
+        <!-- 몇 라운드인지 보여줌 -->
+        <div class="result_title">
+            <h2>ROUND 1 최종결과</h2>
+        </div>
+        <!-- 최종 결과 -->
+        <div class="result">
+            <div class="빈 grid"> </div>
+            <!-- 공격한 사람들 리스트-->
+            <div class="attacker">
+                <h3>공격한 사람</h3>
+                <br>
+                <p>aa</p>
+                <p>bb</p>
+                <p>cc</p>
+                <p>dd</p>
+            </div>
+            <!-- 공격받은 사람들 리스트 -->
+            <div class="defender">
+                <h3>공격받은 사람</h3>
+                <br>
+                <a href="">aa</a><br><br>
+                <a href="">bb</a><br><br>
+                <a href="">cc</a><br><br>
+                <a href="">dd</a><br><br>
+            </div>
+            <div class="빈 grid"> </div>
+        </div>
     </div>
 </body>
+<style>
+.result_title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.result {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+</style>
 
 </html>
