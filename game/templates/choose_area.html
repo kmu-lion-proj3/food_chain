@@ -52,8 +52,8 @@
         <div class="choose_area">
             <h1>들어갈 지역을 고르세요</h1>
         </div>
-            <div class="list_area">
-            <div class="card" style="float:left; width: 40%;">
+        <div class="list_area">
+            <div class="card" style=" margin:auto ; width: 100%;">
                 <div class="card-body">
                     <br>
                     <br>
@@ -64,18 +64,21 @@
                     <br>
                 </div>
             </div>
-            <div class="card" style="float:left; width: 40%;">
-                <div class="card-body">
-                    <br>
-                    <br>
-                    <br>
-                    <a href="#" class="card-link">강</a>
-                    <br>
-                    <br>
-                    <br>
+
+            
+                <div class="card" style="float: left; width: 100%;">
+                    <div class="card-body">
+                        <br>
+                        <br>
+                        <br>
+                        <a href="#" class="card-link">강</a>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
                 </div>
-            </div>
-            <div class="card" style="float:left;  width: 40%; ">
+        
+            <div class="card" style="float:right;  width: 100%; ">
                 <div class="card-body">
                     <br>
                     <br>
@@ -86,7 +89,7 @@
                     <br>
                 </div>
             </div>
-            <div class="card" style="float:left; width: 40%; ">
+            <div class="card" style="float:left; width: 100%; ">
                 <div class="card-body">
                     <br>
                     <br>
@@ -98,22 +101,21 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
 </body>
 
 <style>
-.choose_area {
-    padding-top: 50px;
-    text-align: center;
-    padding-bottom: 100px;
-}
-.list_area {
-    text-align: center;
-    margin-left: 170px;
-}
+    .choose_area {
+        padding-top: 50px;
+        text-align: center;
+        padding-bottom: 100px;
+    }
+
+    .list_area {
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 </style>
 
 </html>
