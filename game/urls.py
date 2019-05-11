@@ -6,5 +6,6 @@ urlpatterns = [
     path('choose_area/', views.choose_area, name="choose_area"),
     path('area_people/', views.area_people, name="area_people"),
     path('result/', views.result, name="result"),
-
+    path('signup/',  views.signup, name='signup'),
+    path('login/', views.login, name='login'),
 ]
