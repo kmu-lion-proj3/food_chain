@@ -1,10 +1,12 @@
 from django.shortcuts import render
+import random
 
 # Create your views here.
 def start(request):
     return render(request, 'start.html')
 
 def role(request):
+    num = random.randint(0,12)
     return render(request, 'role.html')
 
 
