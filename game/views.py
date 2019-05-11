@@ -6,7 +6,9 @@ def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    return render(request, 'role.html', {'role':role})
+    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake', ]
+    random_role = random.choice(role)
+    return render(request, 'role.html', {'role':random_role})
 
 
 def choose_area(request):
