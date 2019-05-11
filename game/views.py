@@ -5,7 +5,7 @@ def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    return render(request, 'role.html')
+    return render(request, 'role.html', {'role':role})
 
 
 def choose_area(request):

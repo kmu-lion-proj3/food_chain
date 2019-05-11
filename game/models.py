@@ -6,5 +6,7 @@ class Animal(models.Model):
     status=models.IntegerField()
     victory=models.BooleanField(default=True)
     location=models.CharField(max_length=200)
-    limited_location=models.CharField(max_length=200)
+    limited_location=models.CharField(max_length=200, null=True)
     life=models.BooleanField(default=True)
+    def __str__(self):
+        return self.kind
