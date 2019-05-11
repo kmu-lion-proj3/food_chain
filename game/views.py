@@ -1,14 +1,10 @@
-from django.shortcuts import render
-<<<<<<< HEAD
+
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Animal
 from django.contrib.auth.models import User
 # from .models import Post
 from django.contrib import auth
 import random
-=======
-import random
->>>>>>> 2b363c69cbdf50b87f9828cc2b1d2454425ee53c
 
 # Create your views here.
 def start(request):
@@ -52,7 +48,7 @@ def signup(request):
                 return render(request, 'signup.html', {'error': 'Username has already been taken'})
             except User.DoesNotExist:
                 user = User.objects.create_user(
-                    request.POST['username'], password=request.POST['password1'])
+                   username=request.POST['username'], password=request.POST['password1'])
                 auth.login(request, user)
                
 
