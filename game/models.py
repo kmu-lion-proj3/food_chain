@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class animal(models.Model):
+class Animal(models.Model):
     kind=models.CharField(max_length=200)
     status=models.IntegerField()
     victory=models.BooleanField(default=True)
