@@ -59,3 +59,7 @@ def signup(request):
         # User wants to enter info
         return render(request, 'signup.html')
     return render(request, 'login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('start')
