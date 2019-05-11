@@ -6,8 +6,7 @@ def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    num = random.randint(0,12)
-    return render(request, 'role.html')
+    return render(request, 'role.html', {'role':role})
 
 
 def choose_area(request):
