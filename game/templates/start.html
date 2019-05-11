@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 <div class="start">
     <div class="start_img">
-        <img src="../image/start/detective.png">
+        <img src="{% static 'image/start/detective.png'%}">
+        <h1>FOOD CHAIN</h1>
     </div>
     <br>
-    <br>
+
     <div class="start_button">
-        <button type="button" onclick="location.href='joinUs.jsp' " class="btn btn-light">START</button>
+        <button type="button" onclick="window.location.href='{% url "role" %}'" class="btn btn-light">START</button>
     </div>
     <br>
     <br>
