@@ -8,7 +8,8 @@
         <div class="role_img">
             <!-- 이미지 파일을 아이디 값으로 바꾼 뒤에, role의 id값과 동일하게 받아와 해당 이미지 파일을 띄우자 -->
             {{role}}
-            <img src="{% static 'image/role/{{role}}.png' %}" alt="" >
+            {{address}}
+            <img src="{% static 'role' %}" alt="" style="width:100px;">
         </div>
         <div class="role_name">
             <p>LION</p>

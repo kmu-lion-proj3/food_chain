@@ -8,7 +8,8 @@ def start(request):
 def role(request):
     role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake', ]
     random_role = random.choice(role)
-    return render(request, 'role.html', {'role':random_role})
+    address = 'image/role/'+str(random_role)+'.png'
+    return render(request, 'role.html', {'role':random_role, 'address':str(address)})
 
 
 def choose_area(request):
