@@ -1,11 +1,13 @@
 <!-- 역할이 정해지고 역할 설명과 특징에 대해 설명하는 페이지 -->
 {% extends 'navbar_base.html' %}
+{% load staticfiles %}
 {% block content %}
     <!-- navbar 시작 -->
     
     <div class="container">
         <div class="role_img">
-            <img src="../image/role/lion.png" alt="" >
+            <img src="{% static 'image/start/detective.png'%}">
+            <!-- <img src="{% static 'image/role/lion.png' }" alt="" > -->
         </div>
         <div class="role_name">
             <p>LION</p>
