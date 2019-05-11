@@ -1,16 +1,24 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Animal
 from django.contrib.auth.models import User
 # from .models import Post
 from django.contrib import auth
+import random
+=======
+import random
+>>>>>>> 2b363c69cbdf50b87f9828cc2b1d2454425ee53c
 
 # Create your views here.
 def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    return render(request, 'role.html', {'role':role})
+    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake', ]
+    random_role = random.choice(role)
+    address = 'image/role/'+str(random_role)+'.png'
+    return render(request, 'role.html', {'role':random_role, 'address':str(address)})
 
 
 def choose_area(request):
