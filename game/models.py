@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 # Create your models here.
 class Animal(models.Model):
@@ -18,3 +19,9 @@ class Animal(models.Model):
     def id_update(self, user):
         self.ID = user
         self.save()
+
+class Situation(models.Model):
+    attacker = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="attacker")
+    attacked = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="attacked")
+    location = models.CharField(max_length=200)
+    round = models.IntegerField()
