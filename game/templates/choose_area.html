@@ -17,7 +17,11 @@
                     </div>
                 </div>
                 <div class="area-text">
-                    <a href="">SKY</a>
+                    <a href="javascript:{document.getElementById('area').submit()}">SKY</a>
+                    <form id="sky" method="get" action="{% url 'choose_process' %}">
+                        <input type="hidden" name="area" value="sky">
+
+                    </form>
                 </div>
             </div>
             <!-- 강 사진 -->
@@ -28,7 +32,10 @@
                     </div>
                 </div>
                 <div class="area-text">
-                    <a href="">RIVER</a>
+                    <a href="javascript:{document.getElementById('area').submit()}">River</a>
+                    <form id="sky" method="get" action="{% url 'choose_process' %}">
+                        <input type="hidden" name="area" value="river">
+                    
                 </div>
             </div>
             <div class="빈 grid"></div>
@@ -43,7 +50,9 @@
                     </div>
                 </div>
                 <div class="area-text">
-                    <a href="">FIELD</a>
+                    <a href="javascript:{document.getElementById('area').submit()}">Field</a>
+                    <form id="sky" method="get" action="{% url 'choose_process' %}">
+                        <input type="hidden" name="area" value="field">
                 </div>
             </div>
             <!-- 숲 사진 -->
@@ -54,7 +63,9 @@
                     </div>
                 </div>
                 <div class="area-text">
-                    <a href="">FOREST</a>
+                    <a href="javascript:{document.getElementById('area').submit()}">SKY</a>
+                    <form id="sky" method="get" action="{% url 'choose_process' %}">
+                        <input type="hidden" name="area" value="field">
                 </div>
             </div>
         </div>
