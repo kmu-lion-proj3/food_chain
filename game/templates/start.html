@@ -1,23 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="login">
-    <a href=" {% url 'login' %}">
-        <h1>login</h1>
-    </a>
-</div>
-<div class="logout">
-    <a href=" {% url 'logout' %}">
-        <h1>logout</h1>
-    </a>
-</div>
 
-<a href=" {% url 'login' %}">
-    <h1>login</h1>
-</a> <a href=" {% url 'logout' %}">
-    <h1>logout</h1>
-</a>
 {% if user.is_authenticated %}
+<h1>{{user.username}}</h1>
 <a href=" {% url 'logout' %}">
     <h1>logout</h1>
 </a>
@@ -39,7 +25,11 @@
     <br>
 
     <div class="start_button">
+        {% if user.is_authenticated %}
         <button type="button" onclick="window.location.href='{% url "role" %}'" class="btn btn-light">START</button>
+        {% else %}
+        <button type="button" onclick="window.location.href='{% url "login" %}'" class="btn btn-light">START</button>
+        {% endif %}
     </div>
     <br>
     <br>

@@ -12,6 +12,6 @@ class Animal(models.Model):
     victory_condition=models.TextField(null=True)
     defeat_condition=models.TextField(null=True)
     uniq=models.TextField(null=True)
-    stare=models.IntegerField(default=10)
+    starve=models.IntegerField(default=10)
     def __str__(self):
         return self.kind
