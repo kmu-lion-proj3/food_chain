@@ -11,24 +11,22 @@
         </div>
         <div class="now_people">
             <div class="빈 grid"> </div>
-            <!-- 공격하는 사람들 리스트-->
-            <div class="attacker">
-                <h3>공격하는 사람</h3>
-                <br>
-                <p>aa</p>
-                <p>bb</p>
-                <p>cc</p>
-                <p>dd</p>
-            </div>
-            <!-- 공격받는 사람들 리스트 -->
+     
+         <form method="get" action="{% url 'result' %}"> 
             <div class="defender">
-                <h3>공격받는 사람</h3>
+                <h3>공격 받은 동물들</h3>
+                {% for animal in allobject %}
+                <input type="radio" name="animal" value="{{animal.ID}}" /> {{animal.ID.username}}
                 <br>
-                <a href="">aa</a><br><br>
-                <a href="">bb</a><br><br>
-                <a href="">cc</a><br><br>
-                <a href="">dd</a><br><br>
+                
+                {% endfor %}
+                <input type="radio" name="animal" value="noAttack" />공격안하기
             </div>
+            <input type="submit" value="공격" >
+        
+            </form>
+           
+
             <div class="빈 grid"> </div>
         </div>
     </div>
