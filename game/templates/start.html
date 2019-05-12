@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Food Chain</title>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<a href=" {% url 'login' %}"><h1>login</h1></a> <a href=" {% url 'logout' %}"><h1>logout</h1></a>
+<div class="start">
+    <div class="start_img">
+        <img src="{% static 'image/start/detective.png'%}">
+        <h1>FOOD CHAIN</h1>
+    </div>
+    <br>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="start">
-        <div class="start_img">
-            <img src="../image/start/detective.png">
-        </div>
-        <br>
-        <br>
-        <div class="start_button" >
-            <button type="button" onclick="location.href='joinUs.jsp' " class="btn btn-light">START</button>
-        </div>  
-        <br>
-        <br>
-    </div> 
-</body>
+    <div class="start_button">
+        <button type="button" onclick="window.location.href='{% url "role" %}'" class="btn btn-light">START</button>
+    </div>
+    <br>
+    <br>
+</div>
+
+
 
 <style>
+<<<<<<< HEAD
 .start {
     position: relative;
 }
@@ -45,5 +38,35 @@
 .start_button {
     text-align: center; 
 }
+=======
+    /* body{
+    background: url(../image/start/detective.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    /* } */
+    .start {
+        position: relative;
+    }
+
+    .start_img {
+        width: 30%;
+        margin: 0px auto;
+
+        text-align: center;
+
+
+    }
+
+    .start_img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .start_button {
+        text-align: center;
+    }
+>>>>>>> 10631c0c4b4eacd3f6bb9c10b28aee93c54fb94e
 </style>
-</html>
+{% endblock %}

@@ -1,4 +1,5 @@
 <!-- 들어간 지역에 있는 사람들 보여주는 페이지 -->
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +32,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
+=======
+{% extends 'navbar_base.html' %}
+{% load staticfiles %}
+{% block content %}
+   
+>>>>>>> 10631c0c4b4eacd3f6bb9c10b28aee93c54fb94e
 
     <div class="container">
         <!-- 내가 어느 지역에 들어왔는지를 보여줌 -->
@@ -75,4 +82,4 @@ ul {
 }
 </style>
 
-</html>
+{% endblock%}
