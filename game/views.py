@@ -16,7 +16,7 @@ def role(request):
     random_role = random.choice(role_array)
     temp = Animal.objects.get(kind=random_role)
     request.user.animal=temp
-    # role_array.remove(random_role)g
+    # role_array.remove(random_role)
     address = 'image/role/'+str(random_role)+'.png'
     # user의 동물 받아오기
     kind = request.user.animal
@@ -33,12 +33,12 @@ def choose_area(request):
     return render(request, 'choose_area.html')
 
 def choose_process(request):
-    request.animal.location=request.GET['area']
+    request.user.animal.location=request.GET['area']
     
     return redirect('area_people')
 
 def area_people(request):
-    place=request.GET['area']
+    place = request.user.animal.location
     allobject=Animal.objects.filter(location=place)
     return render(request, 'area_people.html',{'allobject':allobject})
 
