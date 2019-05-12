@@ -3,63 +3,76 @@
 {% load staticfiles %}
 {% block content %}
 <!-- navbar 시작 -->
-    <div class="container">
-        <div class="choose_area">
-            <p>들어갈 지역을 고르세요</p>
-        </div>
-        <div class="list_area">
-            <div class="빈 grid"></div>
-            <!-- 하늘 사진 -->
-            <div class="area">
-                <div class="area-image">
-                    <div class="card" style=" margin:auto ; width: 100%;">
-                        <img src="{% static 'image/area/sky2.jpg' %}" class="card-img-top" alt="...">
-                    </div>
-                </div>
-                <div class="area-text">
-                    <a href="">SKY</a>
-                </div>
-            </div>
-            <!-- 강 사진 -->
-            <div class="area">
-                <div class="area-image">
-                    <div class="card" style="float: left; width: 100%;">
-                        <img src="{% static 'image/area/river2.jpg' %}" class="card-img-top" alt="...">
-                    </div>
-                </div>
-                <div class="area-text">
-                    <a href="">RIVER</a>
-                </div>
-            </div>
-        </div>
-        <div class="list_area">
-            <div class="빈 grid"></div>
-            <!-- 들 사진 -->
-            <div class="area">
-                <div class="area-image">
-                    <div class="card" style="float:right;  width: 100%; ">
-                        <img src="{% static 'image/area/field2.jpg' %}" class="card-img-top" alt="...">
-                    </div>
-                </div>
-                <div class="area-text">
-                    <a href="">FIELD</a>
-                </div>
-            </div>
-            <!-- 숲 사진 -->
-            <div class="area">
-                <div class="area-image">
-                    <div class="card" style="float:left; width: 100%; ">
-                        <img src="{% static 'image/area/forest2.jpg' %}" class="card-img-top" alt="...">
-                    </div>
-                </div>
-                <div class="area-text">
-                    <a href="">FOREST</a>
-                </div>
-            </div>
-        </div>
-        <div class="빈 grid"></div>
+<div class="container">
+    <div class="choose_area">
+        <p>들어갈 지역을 고르세요</p>
     </div>
-    
+    <div class="list_area">
+        <div class="빈 grid"></div>
+        <!-- 하늘 사진 -->
+        <div class="area">
+            <div class="area-image">
+                <div class="card" style=" margin:auto ; width: 100%;">
+                    <img src="{% static 'image/area/sky2.jpg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="area-text">
+                <a href="javascript:{document.getElementById('sky').submit()}">SKY</a>
+                <form id="sky" method="get" action="{% url 'choose_process' %}">
+                    <input type="hidden" name="area" value="sky">
+
+                </form>
+            </div>
+        </div>
+        <!-- 강 사진 -->
+        <div class="area">
+            <div class="area-image">
+                <div class="card" style="float: left; width: 100%;">
+                    <img src="{% static 'image/area/river2.jpg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="area-text">
+                <a href="javascript:{document.getElementById('river').submit()}">RIVER</a>
+                <form id="river" method="get" action="{% url 'choose_process' %}">
+                    <input type="hidden" name="area" value="river">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="list_area">
+        <div class="빈 grid"></div>
+        <!-- 들 사진 -->
+        <div class="area">
+            <div class="area-image">
+                <div class="card" style="float:left; width: 100%; ">
+                    <img src="{% static 'image/area/field2.jpg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="area-text">
+                <a href="javascript:{document.getElementById('field').submit()}">FIELD</a>
+                <form id="field" method="get" action="{% url 'choose_process' %}">
+                    <input type="hidden" name="area" value="field">
+                </form>
+            </div>
+        </div>
+        <!-- 숲 사진 -->
+        <div class="area">
+            <div class="area-image">
+                <div class="card" style="float:left; width: 100%; ">
+                    <img src="{% static 'image/area/forest2.jpg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="area-text">
+                <a href="javascript:{document.getElementById('forest').submit()}">FOREST</a>
+                <form id="forest" method="get" action="{% url 'choose_process' %}">
+                    <input type="hidden" name="area" value="forest">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="빈 grid"></div>
+</div>
+
 </div>
 </div>
 </body>
@@ -98,7 +111,7 @@
         transform: translate(-50%, -50%);
         color: white;
         font-size: 35px;
-        font-weight:700;
+        font-weight: 700;
         font-family: Nanum Gothic;
     }
 
