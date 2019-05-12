@@ -6,18 +6,19 @@
     
     <div class="container">
         <div class="role_img">
-            <img src="{% static address %}" alt="" style="width:100px;">
+            <img src="{% static address %}" alt="" >
         </div>
         <div class="role_name">
-            <p>your role : {{your_kind}}</p>
+            <p>나의 역할 : {{your_kind}}</p>
         </div>
         <div class="role_detail">
-            {{your_kind}}
+            <!-- {{your_kind}} -->
             <p>승리 조건: {{your_kind.victory_condition}}</p>
             <p>패배 조건: {{your_kind.defeat_condition}}</p>
             <p>특이 사항: {{your_kind.uniq}}</p>
             <p>금지 지역: {{your_kind.limited_location}}</p>
-            <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">Game Start</a>
+            <br>
+            <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">Round 시작</a>
         </div>
 
         
@@ -25,19 +26,19 @@
 
 <style>
 .role_img {
-    width: 30%; 
+    width: 20%; 
     text-align:center; 
     margin:0px auto;
 }
 .role_img img {
-    width: 100%; 
+    width: 80%; 
     height: auto;
     padding-top: 100px; 
 }
 .role_name {
     text-align:center;
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: Noto Serif KR;
     font-weight: 900;
 }
@@ -45,7 +46,7 @@
     text-align:center;
     padding-top: 20px;
     font-family: Noto Serif KR;
-    font-size: 25px;
+    font-size: 15px;
 
 }
 </style>
