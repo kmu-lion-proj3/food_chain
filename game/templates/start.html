@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+<div class="login">
+    <a href=" {% url 'login' %}">
+        <h1>login</h1>
+    </a>
+</div>
+<div class="logout">
+    <a href=" {% url 'logout' %}">
+        <h1>logout</h1>
+    </a>
+</div>
+
+<a href=" {% url 'login' %}">
+    <h1>login</h1>
+</a> <a href=" {% url 'logout' %}">
+    <h1>logout</h1>
+</a>
 {% if user.is_authenticated %}
-<a href=" {% url 'logout' %}"><h1>logout</h1></a>
+<a href=" {% url 'logout' %}">
+    <h1>logout</h1>
+</a>
 {% else %}
-<a href=" {% url 'login' %}"><h1>login</h1></a> 
+<a href=" {% url 'login' %}">
+    <h1>login</h1>
+</a>
 {% endif %}
+
 
 
 
@@ -27,6 +48,32 @@
 
 
 <style>
+    .login {
+        text-align: right;
+    }
+
+    .start {
+        position: relative;
+    }
+
+    .start_img {
+        width: 30%;
+        margin: 0px auto;
+
+        text-align: center;
+
+
+    }
+
+    .start_img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .start_button {
+        text-align: center;
+    }
+
     .start {
         position: relative;
     }
