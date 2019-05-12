@@ -3,14 +3,10 @@
 {% load staticfiles %}
 {% block content %}
 <!-- navbar 시작 -->
-
+<div class="start">
 <div class="container">
-    
     <div class="role_img">
             <img src="{% static address %}" alt="">
-        <!-- <div class="border border-dark rounded-lg" style="border-color: blue;">
-            <img src="{% static address %}" alt="">
-        </div> -->
     </div>
     <div class="role_all">
         <div class="role_name">
@@ -29,6 +25,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <style>
@@ -95,6 +92,7 @@
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
     }
 </style>
 
