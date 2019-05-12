@@ -8,6 +8,6 @@ class Animal(models.Model):
     location=models.CharField(max_length=200)
     limited_location=models.CharField(max_length=200, null=True)
     life=models.BooleanField(default=True)
-    ID=models.OneToOneField(User,on_delete=models.CASCADE)
+    ID=models.OneToOneField(User,on_delete=models.CASCADE,default=True)
     def __str__(self):
         return self.kind
