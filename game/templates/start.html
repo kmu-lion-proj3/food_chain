@@ -14,7 +14,7 @@
     {% if user.is_authenticated %}
     <div class="logout">
         <a href=" {% url 'logout' %}">
-            <h1>logout</h1>
+            <p>logout</p>
         </a>
     </div>
     {% else %}
@@ -28,12 +28,11 @@
     <div class="food_chain">
         <p>먹이사슬</p>
     </div>
-    <br>
     <div class="start_button">
         {% if user.is_authenticated %}
-        <button type="button" onclick="window.location.href='{% url "role" %}'" class="btn btn-light">START</button>
+        <button type="button" onclick="window.location.href='{% url "role" %}'" class="btn btn-outline-light" style="width: 150px; height: 60px; font-size: 20px; font-weight: 700;">START</button>
         {% else %}
-        <button type="button" onclick="window.location.href='{% url "login" %}'" class="btn btn-light">START</button>
+        <button type="button" onclick="window.location.href='{% url "login" %}'" class="btn btn-outline-light" style="width: 150px; height: 60px; font-size: 20px; font-weight: 700;" >START</button>
         {% endif %}
     </div>
     <br> <br><br>
@@ -45,16 +44,25 @@
     a {
         all: unset;
     }
+    a:hover {
+        color: white;
+        cursor: pointer;
+    }
     .login {
         text-align: right;
         padding-top: 40px;
         margin-right: 100px;
         color: white;
-        font-family: East Sea Dokdo;
+        font-family: Nanum Gothic;
         font-size: 35px;
     }
     .logout {
         text-align: right;
+        padding-top: 40px;
+        margin-right: 100px;
+        color: white;
+        font-family: Nanum Gothic;
+        font-size: 40px;
     }
     .start {
         width: 100%;
@@ -68,6 +76,7 @@
     }
     .start_button {
         text-align: center;
+        
     }
 </style>
 {% endblock %}
