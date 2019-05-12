@@ -81,7 +81,7 @@
             "victory_condition":"종료 시 9명 이상 사망",
             "defeat_condition":"승리 조건 실패 시",
             "uniq":"공격 불가. 단, 뱀을 공격하는 모든 동물 사망",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -98,7 +98,7 @@
             "victory_condition":"생존",
             "defeat_condition":"죽음",
             "uniq":"상대방이 엿볼 때 다른 동물로 위장 가능",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -115,7 +115,7 @@
             "victory_condition":"생존",
             "defeat_condition":"죽음",
             "uniq":"4마리 중 생존한 동물들이 모두 한 장소에 있으면 죽지 않음",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -132,7 +132,7 @@
             "victory_condition":"생존",
             "defeat_condition":"죽음",
             "uniq":"4마리 중 생존한 동물들이 모두 한 장소에 있으면 죽지 않음",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -149,7 +149,7 @@
             "victory_condition":"생존",
             "defeat_condition":"죽음",
             "uniq":"4마리 중 생존한 동물들이 모두 한 장소에 있으면 죽지 않음",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -166,7 +166,7 @@
             "victory_condition":"생존",
             "defeat_condition":"죽음",
             "uniq":"4마리 중 생존한 동물들이 모두 한 장소에 있으면 죽지 않음",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -183,7 +183,7 @@
             "victory_condition":"우승자 예상 후, 적중하면 승리(캐릭터 선정 후, 예상 우승자 지정)",
             "defeat_condition":"우승 예상자의 패배",
             "uniq":"한 번에 2명 엿볼 수 있음",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -200,7 +200,7 @@
             "victory_condition":"악어의 승리",
             "defeat_condition":"악어의 죽음",
             "uniq":"한 번에 2명 엿볼 수 있음",
-            "starve":""
+            "starve":"10"
         }
     },
     {
@@ -217,7 +217,7 @@
             "victory_condition":"사자의 승리",
             "defeat_condition":"사자의 죽음",
             "uniq":"한 번에 2명 엿볼 수 있음",
-            "starve":""
+            "starve":"10"
         }
     }
 ]
