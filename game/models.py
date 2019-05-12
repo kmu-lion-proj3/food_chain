@@ -15,3 +15,6 @@ class Animal(models.Model):
     starve=models.IntegerField(default=10)
     def __str__(self):
         return self.kind
+    def id_update(self, user):
+        self.ID = user
+        self.save()

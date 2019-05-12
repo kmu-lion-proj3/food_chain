@@ -9,7 +9,21 @@ import random
 
 # Create your views here.
 def start(request):
-    return render(request, 'start.html')
+    # role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
+    # random.shuffle(role_array)
+    # animal_object_list=[]
+    
+    # for temp in role_array:
+    #     item = Animal.objects.get(kind=temp)
+    #     item.ID= None
+    #     item.save()
+    #     animal_object_list.append(item)
+    
+    # index=0
+    # for user in User.objects.all():
+    #     animal_object_list[index].id_update(user)
+    #     index+=1
+    return render(request, 'start.html', )
 
 def role(request):
     role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
@@ -18,19 +32,39 @@ def role(request):
     request.user.animal=temp
     # role_array.remove(random_role)
     address = 'image/role/'+str(random_role)+'.png'
+    
+
+    role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
+    random.shuffle(role_array)
+    animal_object_list=[]
+    
+    for temp in role_array:
+        item = Animal.objects.get(kind=temp)
+        item.ID= None
+        item.save()
+        animal_object_list.append(item)
+    
+    index=0
+    for user in User.objects.all():
+        animal_object_list[index].id_update(user)
+        index+=1
+    
     # user의 동물 받아오기
     kind = request.user.animal
     # user의 동물 받아오기 end
+    # kind.id_update(request.user)
     return render(request, 'role.html', {'role':random_role, 
                                         'address':str(address),
                                         'your_kind':kind,
+                                        'temp':temp,
+                                        'a_list':animal_object_list,
                                         })
 
 
 def choose_area(request):
 
-
-    return render(request, 'choose_area.html')
+    kind = request.user.animal
+    return render(request, 'choose_area.html', {'kind':kind})
 
 def choose_process(request):
     request.user.animal.location=request.GET['area']

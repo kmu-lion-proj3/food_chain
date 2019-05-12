@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 <div class="start">
-
+    
     {% if user.is_authenticated %}
     <div class="logout">
         <a href=" {% url 'logout' %}">
