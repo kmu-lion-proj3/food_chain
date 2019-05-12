@@ -8,7 +8,7 @@ class Animal(models.Model):
     location=models.CharField(max_length=200)
     limited_location=models.CharField(max_length=200, null=True)
     life=models.BooleanField(default=True)
-    ID=models.OneToOneField(User,on_delete=models.CASCADE,default=True)
+    ID=models.OneToOneField(User,on_delete=models.CASCADE, null=True)
     victory_condition=models.TextField(null=True)
     defeat_condition=models.TextField(null=True)
     uniq=models.TextField(null=True)
