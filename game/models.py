@@ -19,6 +19,9 @@ class Animal(models.Model):
     def id_update(self, user):
         self.ID = user
         self.save()
+    def location_update(self, location):
+        self.location = location
+        self.save()
 
 class Situation(models.Model):
     attacker = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="attacker")

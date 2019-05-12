@@ -64,8 +64,8 @@ def choose_area(request):
     return render(request, 'choose_area.html', {'kind':kind})
 
 def choose_process(request):
-    request.user.animal.location=request.GET['area']
-    
+    place=request.GET['area']
+    request.user.animal.location_update(place)
     return redirect('area_people')
 
 def area_people(request):
