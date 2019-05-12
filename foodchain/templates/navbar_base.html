@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&amp;subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&amp;subset=korean"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -20,12 +21,17 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <button class="btn" type="submit" style="font-family:  Noto Serif KR; color:white; border-color: white;">지금 나의 역할: {{user.animal.kind}}</button>
+        </div>
     </nav>
+
     {% block content %}
 
     {% endblock %}
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -39,5 +45,18 @@
 
 
 </body>
+<style>
+    .now_my_role {
+        color: white;
+        font-family: Noto Serif KR;
+        font-size: 20px;
+        text-align: right;
+        /* padding: 1000px; */
+    }
+
+    .locate_role {
+        text-align: right;
+    }
+</style>
 
 </html>
