@@ -26,27 +26,25 @@ def start(request):
     return render(request, 'start.html', )
 
 def role(request):
-    # role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
-    # random_role = random.choice(role_array)
-    # temp = Animal.objects.get(kind=random_role)
-    # request.user.animal=temp
-    # # role_array.remove(random_role)
-    # address = 'image/role/'+str(random_role)+'.png'
-    role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
-    random.shuffle(role_array)
-    animal_object_list=[]
-    
-    for temp in role_array:
-        item = Animal.objects.get(kind=temp)
-        item.ID= None
-        item.save()
-        animal_object_list.append(item)
-    
-    index=0
-    for user in User.objects.all():
-        animal_object_list[index].id_update(user)
-        index+=1
-    
+    if request.user.id ==1:
+        role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
+        random.shuffle(role_array)
+        animal_object_list=[]
+        
+        for temp in role_array:
+            item = Animal.objects.get(kind=temp)
+            item.ID= None
+            item.life=True
+            # if item.kind=='lion':
+            #     item.starve=1
+            item.save()
+            animal_object_list.append(item)
+        
+        index=0
+        for user in User.objects.all():
+            animal_object_list[index].id_update(user)
+            index+=1
+        
     # user의 동물 받아오기
     kind = request.user.animal
     address = 'image/role/'+str(kind.kind)+'.png'
@@ -55,12 +53,13 @@ def role(request):
     # kind.id_update(request.user)
     return render(request, 'role.html', {'address':str(address),
                                         'your_kind':kind,
-                                        'a_list':animal_object_list,
+                                        
                                         })
 
 
 def choose_area(request):
-
+    # if request.user.life==False:
+    #     return redirect('endgame')
     kind = request.user.animal
     return render(request, 'choose_area.html', {'kind':kind})
 
@@ -77,6 +76,8 @@ def area_people(request):
 def result(request):
     return render(request, 'result.html')
 
+def endgame(request):
+    return render(request, 'endgame.html')
 
 # account 관련 액션
 def login(request):
