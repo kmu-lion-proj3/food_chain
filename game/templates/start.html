@@ -6,7 +6,7 @@
     {% if user.is_authenticated %}
     <div class="logout">
         <a href=" {% url 'logout' %}">
-            <h1>logout</h1>
+            <p>logout</p>
         </a>
     </div>
     {% else %}
@@ -47,6 +47,11 @@
     }
     .logout {
         text-align: right;
+        padding-top: 40px;
+        margin-right: 100px;
+        color: white;
+        font-family: East Sea Dokdo;
+        font-size: 40px;
     }
     .start {
         width: 100%;
