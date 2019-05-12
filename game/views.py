@@ -11,7 +11,7 @@ def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake', ]
+    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
     random_role = random.choice(role)
     address = 'image/role/'+str(random_role)+'.png'
     return render(request, 'role.html', {'role':random_role, 'address':str(address)})
