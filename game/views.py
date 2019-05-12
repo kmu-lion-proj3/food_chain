@@ -6,16 +6,17 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 import random
 
-role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
+
 # Create your views here.
 def start(request):
     return render(request, 'start.html')
 
 def role(request):
+    role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
     random_role = random.choice(role_array)
     temp = Animal.objects.get(kind=random_role)
     request.user.animal=temp
-    role_array.remove(random_role)
+    # role_array.remove(random_role)
     address = 'image/role/'+str(random_role)+'.png'
     # user의 동물 받아오기
     kind = request.user.animal
