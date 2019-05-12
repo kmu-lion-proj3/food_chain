@@ -5,7 +5,7 @@
 <!-- navbar 시작 -->
     <div class="container">
         <div class="choose_area">
-            <h1>들어갈 지역을 고르세요</h1>
+            <p>들어갈 지역을 고르세요</p>
         </div>
         <div class="list_area">
             <div class="빈 grid"></div>
@@ -13,7 +13,7 @@
             <div class="area">
                 <div class="area-image">
                     <div class="card" style=" margin:auto ; width: 100%;">
-                        <img src="../image/area/sky2.jpg" class="card-img-top" alt="...">
+                        <img src="{% static 'image/area/sky2.jpg' %}" class="card-img-top" alt="...">
                     </div>
                 </div>
                 <div class="area-text">
@@ -24,7 +24,7 @@
             <div class="area">
                 <div class="area-image">
                     <div class="card" style="float: left; width: 100%;">
-                        <img src="../image/area/river2.jpg" class="card-img-top" alt="...">
+                        <img src="{% static 'image/area/river2.jpg' %}" class="card-img-top" alt="...">
                     </div>
                 </div>
                 <div class="area-text">
@@ -39,7 +39,7 @@
             <div class="area">
                 <div class="area-image">
                     <div class="card" style="float:right;  width: 100%; ">
-                        <img src="../image/area/field2.jpg" class="card-img-top" alt="...">
+                        <img src="{% static 'image/area/field2.jpg' %}" class="card-img-top" alt="...">
                     </div>
                 </div>
                 <div class="area-text">
@@ -50,7 +50,7 @@
             <div class="area">
                 <div class="area-image">
                     <div class="card" style="float:left; width: 100%; ">
-                        <img src="../image/area/forest2.jpg" class="card-img-top" alt="...">
+                        <img src="{% static 'image/area/forest2.jpg' %}" class="card-img-top" alt="...">
                     </div>
                 </div>
                 <div class="area-text">
@@ -68,10 +68,8 @@
         padding-top: 20px;
         text-align: center;
         padding-bottom: 20px;
-    }
-
-    .choose_area h1 {
-        font-size: 2rem;
+        font-family: Noto Serif KR;
+        font-size: 33px;
     }
 
     .list_area {
@@ -99,6 +97,8 @@
         transform: translate( -50%, -50% );
         color:white;
         font-size: 35px;
+        font-weight:700;
+        font-family: Nanum Gothic;
     }
     a{
         all: unset;
