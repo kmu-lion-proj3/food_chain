@@ -16,7 +16,7 @@ def role(request):
     random_role = random.choice(role_array)
     temp = Animal.objects.get(kind=random_role)
     request.user.animal=temp
-    # role_array.remove(random_role)
+    # role_array.remove(random_role)g
     address = 'image/role/'+str(random_role)+'.png'
     # user의 동물 받아오기
     kind = request.user.animal
