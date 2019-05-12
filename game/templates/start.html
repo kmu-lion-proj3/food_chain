@@ -1,29 +1,26 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-
-{% if user.is_authenticated %}
-<h1>{{user.username}}</h1>
-<a href=" {% url 'logout' %}">
-    <h1>logout</h1>
-</a>
-{% else %}
-<a href=" {% url 'login' %}">
-    <h1>login</h1>
-</a>
-{% endif %}
-
-
-
-
-
 <div class="start">
-    <div class="start_img">
-        <img src="{% static 'image/start/detective.png'%}">
-        <h1>FOOD CHAIN</h1>
+
+    {% if user.is_authenticated %}
+    <div class="logout">
+        <a href=" {% url 'logout' %}">
+            <h1>logout</h1>
+        </a>
+    </div>
+    {% else %}
+    <div class="login">
+        <a href=" {% url 'login' %}">
+            <p>login</p>
+        </a>
+    </div>
+    {% endif %}
+    <br><br>
+    <div class="food_chain">
+        <p>먹이사슬</p>
     </div>
     <br>
-
     <div class="start_button">
         {% if user.is_authenticated %}
         <button type="button" onclick="window.location.href='{% url "role" %}'" class="btn btn-light">START</button>
@@ -31,57 +28,36 @@
         <button type="button" onclick="window.location.href='{% url "login" %}'" class="btn btn-light">START</button>
         {% endif %}
     </div>
-    <br>
-    <br>
+    <br> <br><br>
 </div>
 
 
 
 <style>
+    a {
+        all: unset;
+    }
     .login {
         text-align: right;
+        padding-top: 40px;
+        margin-right: 100px;
+        color: white;
+        font-family: East Sea Dokdo;
+        font-size: 35px;
     }
-
+    .logout {
+        text-align: right;
+    }
     .start {
-        position: relative;
-    }
-
-    .start_img {
-        width: 30%;
-        margin: 0px auto;
-
-        text-align: center;
-
-
-    }
-
-    .start_img img {
         width: 100%;
-        height: auto;
+        background-image: url('static/image/start/nature.jpg');
     }
-
-    .start_button {
+    .food_chain {
         text-align: center;
+        font-size: 300px;
+        font-family: East Sea Dokdo;
+        color: white;
     }
-
-    .start {
-        position: relative;
-    }
-
-    .start_img {
-        width: 30%;
-        margin: 0px auto;
-
-        text-align: center;
-
-
-    }
-
-    .start_img img {
-        width: 100%;
-        height: auto;
-    }
-
     .start_button {
         text-align: center;
     }
