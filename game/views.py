@@ -11,10 +11,15 @@ def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake', ]
+    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
     random_role = random.choice(role)
     address = 'image/role/'+str(random_role)+'.png'
-    return render(request, 'role.html', {'role':random_role, 'address':str(address)})
+    # user의 동물 받아오기
+    kind = request.user.animal
+    # user의 동물 받아오기 end
+    return render(request, 'role.html', {'role':random_role, 'address':str(address),
+                                        'your_kind':kind,
+                                        })
 
 
 def choose_area(request):
@@ -26,6 +31,8 @@ def area_people(request):
 def result(request):
     return render(request, 'result.html')
 
+
+# account 관련 액션
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
