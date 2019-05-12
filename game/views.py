@@ -26,14 +26,12 @@ def start(request):
     return render(request, 'start.html', )
 
 def role(request):
-    role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
-    random_role = random.choice(role_array)
-    temp = Animal.objects.get(kind=random_role)
-    request.user.animal=temp
-    # role_array.remove(random_role)
-    address = 'image/role/'+str(random_role)+'.png'
-    
-
+    # role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
+    # random_role = random.choice(role_array)
+    # temp = Animal.objects.get(kind=random_role)
+    # request.user.animal=temp
+    # # role_array.remove(random_role)
+    # address = 'image/role/'+str(random_role)+'.png'
     role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
     random.shuffle(role_array)
     animal_object_list=[]
@@ -51,12 +49,12 @@ def role(request):
     
     # user의 동물 받아오기
     kind = request.user.animal
+    address = 'image/role/'+str(kind.kind)+'.png'
+    
     # user의 동물 받아오기 end
     # kind.id_update(request.user)
-    return render(request, 'role.html', {'role':random_role, 
-                                        'address':str(address),
+    return render(request, 'role.html', {'address':str(address),
                                         'your_kind':kind,
-                                        'temp':temp,
                                         'a_list':animal_object_list,
                                         })
 
