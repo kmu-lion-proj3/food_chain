@@ -11,13 +11,14 @@ def start(request):
     return render(request, 'start.html')
 
 def role(request):
-    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
+    role=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake', ]
     random_role = random.choice(role)
     address = 'image/role/'+str(random_role)+'.png'
     # user의 동물 받아오기
     kind = request.user.animal
     # user의 동물 받아오기 end
-    return render(request, 'role.html', {'role':random_role, 'address':str(address),
+    return render(request, 'role.html', {'role':random_role, 
+                                        'address':str(address),
                                         'your_kind':kind,
                                         })
 

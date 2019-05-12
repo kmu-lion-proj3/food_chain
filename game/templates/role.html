@@ -9,15 +9,18 @@
             <img src="{% static address %}" alt="" style="width:100px;">
         </div>
         <div class="role_name">
-            <p>{{role}}</p>
+            <p>your role : {{your_kind}}</p>
         </div>
         <div class="role_detail">
             {{your_kind}}
-            <p>승리 조건: </p>
-            <p>패배 조건: </p>
-            <p>특이 사항: </p>
-            <p>금지 지역: </p>
+            <p>승리 조건: {{your_kind.victory_condition}}</p>
+            <p>패배 조건: {{your_kind.defeat_condition}}</p>
+            <p>특이 사항: {{your_kind.uniq}}</p>
+            <p>금지 지역: {{your_kind.limited_location}}</p>
+            <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">Game Start</a>
         </div>
+
+        
     </div>
 
 <style>
