@@ -54,7 +54,7 @@
         "model": "game.Animal",
         "pk":4,
         "fields":{
-            "kind":"haiana",
+            "kind":"hyena",
             "status":"2",
             "victory":"False",
             "location":"FIELD",
@@ -190,7 +190,7 @@
         "model": "game.Animal",
         "pk":12,
         "fields":{
-            "kind":"crocodile",
+            "kind":"crocodile_bird",
             "status":"1",
             "victory":"False",
             "location":"RIVER",
@@ -207,7 +207,7 @@
         "model": "game.Animal",
         "pk":13,
         "fields":{
-            "kind":"rat",
+            "kind":"mouse",
             "status":"1",
             "victory":"False",
             "location":"FOREST",
