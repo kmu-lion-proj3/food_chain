@@ -28,10 +28,19 @@ def role(request):
 
 
 def choose_area(request):
+
+
     return render(request, 'choose_area.html')
 
+def choose_process(request):
+    request.animal.location=request.GET['area']
+    
+    return redirect('area_people')
+
 def area_people(request):
-    return render(request, 'area_people.html')
+    place=request.GET['area']
+    allobject=Animal.objects.filter(location=place)
+    return render(request, 'area_people.html',{'allobject':allobject})
 
 def result(request):
     return render(request, 'result.html')
