@@ -1,32 +1,20 @@
 
 from django.shortcuts import render,redirect, get_object_or_404
-from .models import Animal
+from .models import Animal, Situation
 from django.contrib.auth.models import User
 # from .models import Post
 from django.contrib import auth
 import random
 
-
+round=1
 # Create your views here.
 def start(request):
-    # role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
-    # random.shuffle(role_array)
-    # animal_object_list=[]
-    
-    # for temp in role_array:
-    #     item = Animal.objects.get(kind=temp)
-    #     item.ID= None
-    #     item.save()
-    #     animal_object_list.append(item)
-    
-    # index=0
-    # for user in User.objects.all():
-    #     animal_object_list[index].id_update(user)
-    #     index+=1
     return render(request, 'start.html', )
 
 def role(request):
     if request.user.id ==1:
+        global round
+        round = 1
         role_array=['lion','alligator', 'chameleon', 'deer', 'eagle', 'hyena', 'snake','crocodile_bird','crow','mallard','mouse','otter','rabbit' ]
         random.shuffle(role_array)
         animal_object_list=[]
@@ -53,13 +41,13 @@ def role(request):
     # kind.id_update(request.user)
     return render(request, 'role.html', {'address':str(address),
                                         'your_kind':kind,
-                                        
+                                        'round':round,
                                         })
 
 
 def choose_area(request):
-    # if request.user.life==False:
-    #     return redirect('endgame')
+    if request.user.animal.life==False:
+        return redirect('endgame')
     kind = request.user.animal
     return render(request, 'choose_area.html', {'kind':kind})
 
@@ -74,7 +62,38 @@ def area_people(request):
     return render(request, 'area_people.html',{'allobject':allobject})
 
 def result(request):
-    return render(request, 'result.html')
+    # 모든 공격이 이뤄지면 모든 동물은 starve -= 1 
+    request.user.animal.starve -= 1
+
+    # situation에 공격 상황 및 라운드 기록
+    global round
+    round = round+1
+    
+    situation = Situation()
+    situation.attacker = request.user
+    attacked_user = request.GET['animal']
+    temp = User.objects.get(username=attacked_user)
+    situation.attacked = temp
+    situation.round = round
+    situation.location = request.user.animal.location
+    situation.save()
+
+    attacker = situation.attacker.animal
+    attacked = situation.attacked.animal
+    
+    # status 및 조건에 따른 공격 성공 여부 확인
+    if attacker.status > attacked.status:
+        attacked.life = False
+        attacker.starve += 1
+        attacker.save()
+        attacked.save()
+    else:
+        attacker.life = False
+        attacker.save()
+        
+
+    all_situation = Situation.objects.filter()
+    return render(request, 'result.html', {'situation':all_situation})
 
 def endgame(request):
     return render(request, 'endgame.html')

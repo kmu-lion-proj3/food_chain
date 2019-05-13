@@ -28,3 +28,7 @@ class Situation(models.Model):
     attacked = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="attacked")
     location = models.CharField(max_length=200)
     round = models.IntegerField()
+    def __str__(self):
+        round = self.round
+        location = self.location
+        return str(str(round)+'round - place : '+ str(location))
