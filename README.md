@@ -18,17 +18,16 @@
     
 </p>
 <h2>detail</h2>
-<p>django를 사용해서 만들었으며, 13인의 계정정보가 있어야 합니다.
+<p>
+    django를 사용해서 만들었으며, 13인의 계정정보가 있어야 합니다.
     13인보다 적거나 많으면 정상작동하지 않습니다.
     <br>
     동물 정보는 다음 명령어를 통해 db에 저장할 수 있습니다.
-    ```python
-    a=1
-    ```
-    
-    ```shell
-    python manage.py loaddata game/fixtures/data.json
-    ```
+</p>
+```
+python manage.py loaddata game/fixtures/data.json
+```
+<p>
     data.json파일 안에 13마리의 동물의 정보를 넣어두었습니다.
     <br>
     role함수는 임의로 지정한 계정에 대해서 게임 시작이 가능합니다.
