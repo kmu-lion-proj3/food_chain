@@ -1,57 +1,60 @@
 {% extends 'navbar_base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="container">
-    <h1>축하합니다! {{user.username}}님!</h1>
-    <h2>당신은 {{user.animal.kind}}로 승리했습니다.</h2>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="{% static address %}" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8" style="background-color: #dddddd">
-                <div class="card-body" style="background-color: #dddddd">
-                    <h5 class="card-title">{{user.username}}</h5>
-                    <p class="card-text">{{user.animal.victory_condition}}</p>
-                    <p class="card-text"><small class="text-muted">{{user.animal.kind}}</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h2>승리한 사람들</h2>
+<div class="start">
 
 
-    {% for winner in winners %}
-
-    {%endfor%}
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="..." class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
+    <div class="container" style="text-align: center">
+        <h1 class="white-font">축하합니다! {{user.username}}님!</h1>
+        <h2 class="white-font">당신은 {{user.animal.kind}}로 승리했습니다.</h2>
+        <div class="row">
+            <div class="card mb-3 col-3" style="text-align:center; width:50%; height:50%">
+                <img src="{% static address %}" class="card-img-top animal" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h2 class="card-title">{{user.animal.kind}}</h2>
+                    <p class="card-text">승리조건 : {{user.animal.victory_condition}}</p>
                 </div>
             </div>
+            <div class="col-3">
+
+            </div>
+            <div class="col-6 white-font">
+                    <h2>승리한 사람들</h2>
+                    <h2>winner list</h2>
+                    {% for winner in winners %}
+                    <p class="font-size-w">{{winner.ID}} : {{winner}}</p>
+                    
+                    {%endfor%}
+            </div>
         </div>
+
+
+
+
+        
+        <h3 class="white-font">admin 계정이 게임을 다시 시작해야 게임을 진행할 수 있습니다.</h3>
+
+        <a class="btn btn-primary" href="{% url 'start' %}" role="button">처음으로</a>
+        <br><br>
     </div>
-
-</div>
-
-
-
-
-<h2>winner list</h2>
-{% for winner in winners %}
-{{winner.ID}} : {{winner}}
-<hr>
-{%endfor%}
-<p>admin 계정이 게임을 다시 시작해야 게임을 진행할 수 있습니다.</p>
-
-<a class="btn btn-primary" href="{% url 'start' %}" role="button">처음으로</a>
-{% endblock %}
+    <style>
+        .start {
+            /* width: 100%; */
+            height: 100%;
+            background-image: url('{% static "image/start/nature.jpg" %}');
+            background-repeat: no-repeat;
+        }
+        .animal{
+            width: 50%;
+            position: relative;
+            left: 20%;
+        }
+        .white-font {
+            color: white;
+            font-family: East Sea Dokdo;
+        }
+        .font-size-w{
+            font-size:30px
+        }
+    </style>
+    {% endblock %}

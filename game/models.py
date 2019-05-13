@@ -32,3 +32,6 @@ class Situation(models.Model):
         round = self.round
         location = self.location
         return str(str(round)+'round - place : '+ str(location))
+
+class Flag(models.Model):
+    flag = models.BooleanField()

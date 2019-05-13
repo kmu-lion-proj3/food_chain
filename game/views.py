@@ -1,22 +1,24 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Animal, Situation
+from .models import Animal, Situation, Flag
 from django.contrib.auth.models import User
 # from .models import Post
 from django.contrib import auth
 import random
 
 round_num = None
-round_limit = None
 # Create your views here.
 
 def start(request):
+    test=Flag()
+    test.flag=True
+    test.save()
     return render(request, 'start.html', )
 
 
 def role(request):
     global round_num
-    if request.user.username == 'chulhee23@likelion.org':
+    if request.user.username == '바보철희':
         
         round_num = 0
         # admin 계정이면 새로 게임 시작시 모든 상황 모델 데이터 날리기
@@ -42,7 +44,7 @@ def role(request):
             index += 1
         game_open = "game restart!"
     else:
-        round_num =1 
+        round_num =0
         game_open = "game 진행중..."
     # user의 동물 받아오기
     kind = request.user.animal
@@ -67,9 +69,10 @@ def choose_area(request):
         address = 'image/role/'+str(request.user.animal.kind)+'.png'
         return render(request, 'final.html',{'winners': winners, 'address':address})
     
-    global round_limit
-    if round_limit is None:
-        round_limit=True
+    test=Flag.objects.first()
+    if test.flag is True:
+        test.flag = False
+        test.save()
         round_num += 1
 
     kind = request.user.animal
@@ -126,10 +129,11 @@ def situation_create(request):
 
 def result(request,round_num):
     round_num = round_num
-    global round_limit
-    if round_limit:
-        round_limit = None
-    
+    test = Flag.objects.first()
+    if test.flag == False:
+        test.flag = True
+        test.save()
+
     all_situation = Situation.objects.filter(round=round_num, location=request.user.animal.location)
     return render(request, 'result.html', {'situation': all_situation, 'round': round_num})
 
