@@ -12,7 +12,7 @@
         <div class="now_people">
             <div class="빈 grid"> </div>
      
-         <form method="get" action="{% url 'result' %}"> 
+         <form method="GET" action="{% url 'result' %}"> 
             <div class="defender">
                 <h3>공격 받은 동물들</h3>
                 {% for animal in allobject %}
@@ -20,7 +20,7 @@
                 <br>
                 
                 {% endfor %}
-                <input type="radio" name="animal" value="noAttack" />공격안하기
+                <input type="radio" name="animal" value="{{animal.ID}}" />공격안하기
             </div>
             <input type="submit" value="공격" >
         
