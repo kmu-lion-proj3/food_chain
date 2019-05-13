@@ -16,7 +16,7 @@ def start(request):
 
 def role(request):
     global round
-    if request.user.username == 'aa':
+    if request.user.username == 'chulhee23@likelion.org':
         
         round = 0
         # admin 계정이면 새로 게임 시작시 모든 상황 모델 데이터 날리기
