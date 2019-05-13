@@ -18,6 +18,9 @@ def role(request):
     if request.user.username == 'chulhee23@likelion.org':
         global round
         round = 1
+        # admin 계정이면 새로 게임 시작시 모든 상황 모델 데이터 날리기
+        Situation.objects.all().delete()
+
         role_array = ['lion', 'alligator', 'chameleon', 'deer', 'eagle', 'hyena',
                       'snake', 'crocodile_bird', 'crow', 'mallard', 'mouse', 'otter', 'rabbit']
         random.shuffle(role_array)
@@ -106,7 +109,7 @@ def situation_create(request):
 
 def result(request):
     global round
-    
+
     all_situation = Situation.objects.filter()
     return render(request, 'result.html', {'situation': all_situation, 'round': round})
 
