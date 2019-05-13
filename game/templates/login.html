@@ -341,8 +341,8 @@
         <div class="signin-cont cont">
             <form method="POST" action="{% url 'login'%}">
                 {% csrf_token %}
-            <input type="email" name="username" id="email" class="inpt" required="required" placeholder="Your id">
-            <label for="email">Your id</label>
+            <input type="text" name="username" id="text" class="inpt" required="required" placeholder="Your id">
+            <label for="text">Your id</label>
             <input type="password" name="password" id="password" class="inpt" required="required"
               placeholder="Your password">
             <label for="password">Your password</label>
