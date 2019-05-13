@@ -22,6 +22,10 @@
     13인보다 적거나 많으면 정상작동하지 않습니다.
     <br>
     동물 정보는 다음 명령어를 통해 db에 저장할 수 있습니다.
+    ```python
+    a=1
+    ```
+    
     ```shell
     python manage.py loaddata game/fixtures/data.json
     ```
