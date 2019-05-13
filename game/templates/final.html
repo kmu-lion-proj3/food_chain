@@ -1,7 +1,51 @@
 {% extends 'navbar_base.html' %}
 {% load staticfiles %}
 {% block content %}
-<h1>축하합니다!</h1>
+<div class="container">
+    <h1>축하합니다! {{user.username}}님!</h1>
+    <h2>당신은 {{user.animal.kind}}로 승리했습니다.</h2>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{% static address %}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8" style="background-color: #dddddd">
+                <div class="card-body" style="background-color: #dddddd">
+                    <h5 class="card-title">{{user.username}}</h5>
+                    <p class="card-text">{{user.animal.victory_condition}}</p>
+                    <p class="card-text"><small class="text-muted">{{user.animal.kind}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>승리한 사람들</h2>
+
+
+    {% for winner in winners %}
+
+    {%endfor%}
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
 <h2>winner list</h2>
 {% for winner in winners %}
 {{winner.ID}} : {{winner}}

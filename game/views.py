@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 import random
 
-round
+round_num = None
 round_limit = None
 # Create your views here.
 
@@ -15,10 +15,10 @@ def start(request):
 
 
 def role(request):
-    global round
+    global round_num
     if request.user.username == 'chulhee23@likelion.org':
         
-        round = 0
+        round_num = 0
         # admin 계정이면 새로 게임 시작시 모든 상황 모델 데이터 날리기
         Situation.objects.all().delete()
 
@@ -42,7 +42,7 @@ def role(request):
             index += 1
         game_open = "game restart!"
     else:
-        round =1 
+        round_num =1 
         game_open = "game 진행중..."
     # user의 동물 받아오기
     kind = request.user.animal
@@ -52,7 +52,7 @@ def role(request):
     # kind.id_update(request.user)
     return render(request, 'role.html', {'address': str(address),
                                          'your_kind': kind,
-                                         'round': round,
+                                         'round': round_num,
                                          'game_open': game_open
                                          })
 
@@ -61,15 +61,16 @@ def choose_area(request):
     if request.user.animal.life == False:
         return redirect('endgame')
     
-    global round
-    if round ==4:
+    global round_num
+    if (round_num >=4) :
         winners = Animal.objects.filter(life = True)
-        return render(request, 'final.html',{'winners': winners})
+        address = 'image/role/'+str(request.user.animal.kind)+'.png'
+        return render(request, 'final.html',{'winners': winners, 'address':address})
     
     global round_limit
     if round_limit is None:
         round_limit=True
-        round += 1
+        round_num += 1
 
     kind = request.user.animal
     return render(request, 'choose_area.html', {'kind': kind})
@@ -92,7 +93,7 @@ def situation_create(request):
     request.user.animal.starve -= 1
 
     # situation에 공격 상황 및 라운드 기록
-    global round
+    global round_num
 
     situation = Situation()
     situation.attacker = request.user
@@ -102,7 +103,7 @@ def situation_create(request):
 
     # 공격을 하지 않을 경우 상황 저장 X
     if situation.attacked != situation.attacker:
-        situation.round = round
+        situation.round = round_num
         situation.location = request.user.animal.location
         situation.save()
 
@@ -117,20 +118,20 @@ def situation_create(request):
         attacker.save()
         attacked.save()
     elif attacker==attacked:
-        return redirect('result', round)
+        return redirect('result', round_num)
     else:
         attacker.life = False
         attacker.save()
-    return redirect('result' , round)
+    return redirect('result' , round_num)
 
-def result(request,round):
-    round = round
+def result(request,round_num):
+    round_num = round_num
     global round_limit
     if round_limit:
         round_limit = None
     
-    all_situation = Situation.objects.filter(round=round, location=request.user.animal.location)
-    return render(request, 'result.html', {'situation': all_situation, 'round': round})
+    all_situation = Situation.objects.filter(round=round_num, location=request.user.animal.location)
+    return render(request, 'result.html', {'situation': all_situation, 'round': round_num})
 
 
 def endgame(request):
