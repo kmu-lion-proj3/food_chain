@@ -3,33 +3,36 @@
 <!-- 사람들이 선택한 최종 결과 보여주는 페이지 -->
 
 <div class="container">
-    <!-- 몇 라운드인지 보여줌 -->
+    <!-- 몇 라운드 최종결과인지 보여줌 -->
     <div class="result_title">
         <h2>ROUND {{round}} 최종결과</h2>
     </div>
     <!-- 최종 결과 -->
-    
-
-    <div class="result">
-        {% for one in situation %}
-        <div class="card">
-            공격자 : {{one.attacker}} : {{one.attacker.animal}}
+    <div class="for_grid">
+        <div class="빈 그리드"></div>
+        <div class="result">
+            {% for one in situation %}
+            <div class="card">
+                공격자     {{one.attacker}} ( {{one.attacker.animal}} )
+                <br>
+                피식자  {{one.attacked}} ( {{one.attacked.animal}})
+                <br>
+                result :
+                {% if one.attacker.animal.life == True %}
+                <p>성공</p>
+                {% else %}
+                <p>실패</p>
+                {% endif %}
+            </div>
             <br>
-            피식자 : {{one.attacked}} : {{one.attacked.animal}}
+            {% endfor %}
             <br>
-            result :
-            {% if one.attacker.animal.life == True %}
-            <p>성공</p>
-            {% else %}
-            <p>실패</p>
-            {% endif %}
         </div>
-        <br>
-
-        {% endfor %}
-
+        <div class="빈 그리드"></div>
     </div>
-    <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">다음 라운드 진행</a>
+    <div class="for_button"></div>
+        <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">다음 라운드 진행</a>
+    </div>
 </div>
 </body>
 <style>
@@ -37,13 +40,24 @@
         text-align: center;
         margin-top: 50px;
         margin-bottom: 50px;
+        font-family:  Noto Serif KR;
+        font-size: 33px;
 
     }
+    .card {
+        padding: 30px 15px 30px 15px;
+        font-family:  Noto Serif KR;
+        font-size: 22px;
+        border-color: #4a7745;
+        border-width: 3px;
 
-    .result {
+    }
+    .for_grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        text-align: center;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .for_button.btn{
+        margin-left:25%;
     }
 </style>
 {% endblock %}
