@@ -3,33 +3,54 @@
 <!-- 사람들이 선택한 최종 결과 보여주는 페이지 -->
 
 <div class="container">
-    <!-- 몇 라운드인지 보여줌 -->
+    <!-- 몇 라운드 최종결과인지 보여줌 -->
     <div class="result_title">
         <h2>ROUND {{round}} 최종결과</h2>
     </div>
     <!-- 최종 결과 -->
-    
+    <div class="for_grid">
+        <!-- 공격자 grid -->
+        <div class="grid_attacker">
+            {% for one in situation %}
+            <div class="card">
+                <span class="attacker" style="font-size: 33px; font-weight: 600;">공격자</span>
+                <br>
+                {{one.attacker}} ( {{one.attacker.animal}} )
+            </div>
+            {% endfor %}
+            <br>
+        </div>
+        <div class="grid_result">
+                {% for one in situation %}
+                <div class="card">
+                    <span class="attack_result" style="font-size: 33px; font-weight: 600;">공격 성공여부</span>
+                    <br>
+                    {% if one.attacker.animal.life == True %}
+                    <p style="color: #333fc6; font-weight: 600;">성공</p>
+                    {% else %}
+                    <p style="color: #db2e2e; font-weight: 600;">실패</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <br>
+            </div>
+        <!-- 피식자 grid  -->
+        <div class="grid_attacked">
+            {% for one in situation %}
+            <div class="card">
+                    <span class="attacked" style="font-size: 33px; font-weight: 600;">피식자</span>
 
-    <div class="result">
-        {% for one in situation %}
-        <div class="card">
-            공격자 : {{one.attacker}} : {{one.attacker.animal}}
+                <br>
+                {{one.attacked}} ( {{one.attacked.animal}})
+            </div>
+            {% endfor %}
             <br>
-            피식자 : {{one.attacked}} : {{one.attacked.animal}}
-            <br>
-            result :
-            {% if one.attacker.animal.life == True %}
-            <p>성공</p>
-            {% else %}
-            <p>실패</p>
-            {% endif %}
         </div>
         <br>
-
-        {% endfor %}
-
+        <br>
+    <div class="for_button">
+        <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">다음 라운드 진행</a>
     </div>
-    <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">다음 라운드 진행</a>
 </div>
 </body>
 <style>
@@ -37,12 +58,58 @@
         text-align: center;
         margin-top: 50px;
         margin-bottom: 50px;
+        font-family: Noto Serif KR;
+        font-size: 33px;
 
     }
+    .card {
+        padding: 30px 15px 30px 15px;
+        font-family: Noto Serif KR;
+        font-size: 22px;
+        border-top-width: 4px;
+        border-bottom-width: 4px;
+        border-color: #4a7745;
+        height: 200px;
+        border-radius: 0;
+    }
 
-    .result {
+    .for_grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .grid_attacker .card {
+        border-width: 4px;
+
+    }
+    .grid_attacked .card {
+        border-width: 4px;
+
+    }
+    .card {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .for_button {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .for_button a {
+        background-color: #4a7745;
+        color: white;
+        font-family: Noto Serif KR;
+        font-size: 20px;
+        border-color: #4a7745;
+        text-align: center;
+    }
+
+    .for_button a:hover {
+        background-color: #4a7745;
+        color: white;
+        font-family: Noto Serif KR;
+        font-size: 20px;
+        border-color: #4a7745;
         text-align: center;
     }
 </style>

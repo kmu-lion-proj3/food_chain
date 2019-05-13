@@ -1,7 +1,58 @@
-{% extends 'navbar_base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<h1>당신은 죽었습니다!</h1>
-<p>admin 계정이 게임을 다시 시작해야 게임을 진행할 수 있습니다.</p>
-<a class="btn btn-primary" href="{% url 'start' %}" role="button">처음으로</a>
+
+<div class="endgame">
+    <div class="die">
+        <div class="die_img">
+            <img src="{% static 'image/endgame/skeleton.jpg' %}">
+        </div>
+        <div class="die_text">
+            <h3>당신은 죽었습니다...</h3>
+            <p>admin 계정이 게임을 다시 시작해야 게임을 진행할 수 있습니다.</p>
+            <div class="restart_button">
+                <a class="btn btn-primary"  href="{% url 'start' %}" role="button">처음으로</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .die {
+        width: 100%;
+    }
+    .die img {
+        width: 100%;
+        vertical-align: middle;
+        height: auto;
+    }
+    .die_text {
+        padding-top: 100px;
+        text-align: center;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: East Sea Dokdo;
+        font-size: 30px;
+    }
+    .die_text h3{
+        font-size: 80px;
+    }
+    .restart_button a {
+        background-color: white;
+        color: black;
+        border-color: white;
+        font-size: 25px;
+        width:20%;
+    }
+    .restart_button a:hover {
+        background-color: white;
+        color: black;
+        border-color: white;
+        font-size: 25px;
+        width:20%;
+    }
+</style>
 {% endblock %}

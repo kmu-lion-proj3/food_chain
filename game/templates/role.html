@@ -4,32 +4,31 @@
 {% block content %}
 <!-- navbar 시작 -->
 <div class="start">
-<div class="container">
-    <div class="role_img">
-            <img src="{% static address %}" alt="">
+    <div class="game_open">
+        ROUND  {{round}} ({{game_open}})
     </div>
-    <div class="role_all">
-        <div class="role_name">
-            <p>내가 할 역할: {{your_kind}}</p>
-            round : {{round}}
-            <br>
-            {{game_open}}
-
+    <div class="container">
+        <div class="role_img">
+                <img src="{% static address %}" alt="">
         </div>
-        <div class="role_detail">
-            <p>승리 조건: {{your_kind.victory_condition}}</p>
-            <p>패배 조건: {{your_kind.defeat_condition}}</p>
-            <div class="uniq">
-                <p>특이 사항: {{your_kind.uniq}}</p>
+        <div class="role_all">
+            <div class="role_name">
+                <p>내가 할 역할: {{your_kind}}</p>
             </div>
-            <p>금지 지역: {{your_kind.limited_location}}</p>
-            <br>
-            <div class="button_center">
-                <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">게임 시작하기</a>
+            <div class="role_detail">
+                <p>승리 조건: {{your_kind.victory_condition}}</p>
+                <p>패배 조건: {{your_kind.defeat_condition}}</p>
+                <div class="uniq">
+                    <p>특이 사항: {{your_kind.uniq}}</p>
+                </div>
+                <p>금지 지역: {{your_kind.limited_location}}</p>
+                <br>
+                <div class="button_center">
+                    <a class="btn btn-primary" href="{% url 'choose_area' %}" role="button">게임 시작하기</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <style>
@@ -44,7 +43,7 @@
     .role_img {
         width: 50%;
         text-align: center;
-        margin: 150px auto;
+        margin: 60px auto;
     }
 
     .role_img img {
@@ -55,7 +54,7 @@
         border-radius: 20px;
     }
     .role_all {
-        padding-top: 120px;
+        padding-top: 30px;
     }
     .role_name {
         text-align: left;
@@ -96,7 +95,13 @@
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-
+    }
+    .game_open {
+        text-align: center;
+        margin: 50px;
+        font-size: 30px;
+        font-family: Noto Serif KR;
+        font-weight: 900;
     }
 </style>
 
