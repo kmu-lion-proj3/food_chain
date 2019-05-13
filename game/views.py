@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 import random
 
-round = 1
+round
 # Create your views here.
 
 
@@ -17,7 +17,7 @@ def start(request):
 def role(request):
     if request.user.username == 'chulhee23@likelion.org':
         global round
-        round = 1
+        round = 0
         # admin 계정이면 새로 게임 시작시 모든 상황 모델 데이터 날리기
         Situation.objects.all().delete()
 
@@ -58,8 +58,12 @@ def role(request):
 def choose_area(request):
     if request.user.animal.life == False:
         return redirect('endgame')
-
+    
     global round
+    if round ==4:
+        winners = Animal.objects.filter(life = True)
+        return render(request, 'final.html',{'winners': winners})
+
     round += 1
     kind = request.user.animal
     return render(request, 'choose_area.html', {'kind': kind})
@@ -73,7 +77,7 @@ def choose_process(request):
 
 def area_people(request):
     place = request.user.animal.location
-    allobject = Animal.objects.filter(location=place)
+    allobject = Animal.objects.filter(location=place, life=True)
     return render(request, 'area_people.html', {'allobject': allobject})
 
 
@@ -89,12 +93,16 @@ def situation_create(request):
     attacked_user = request.GET['animal']
     temp = User.objects.get(username=attacked_user)
     situation.attacked = temp
-    situation.round = round
-    situation.location = request.user.animal.location
-    situation.save()
+
+    # 공격을 하지 않을 경우 상황 저장 X
+    if situation.attacked != situation.attacker:
+        situation.round = round
+        situation.location = request.user.animal.location
+        situation.save()
 
     attacker = situation.attacker.animal
     attacked = situation.attacked.animal
+    
 
     # status 및 조건에 따른 공격 성공 여부 확인
     if attacker.status > attacked.status:
@@ -102,15 +110,16 @@ def situation_create(request):
         attacker.starve += 1
         attacker.save()
         attacked.save()
+    elif attacker==attacked:
+        return redirect('result', round)
     else:
         attacker.life = False
         attacker.save()
-    return redirect('result')
+    return redirect('result' , round)
 
-def result(request):
-    global round
-
-    all_situation = Situation.objects.filter()
+def result(request,round):
+    round = round
+    all_situation = Situation.objects.filter(round=round, location=request.user.animal.location)
     return render(request, 'result.html', {'situation': all_situation, 'round': round})
 
 

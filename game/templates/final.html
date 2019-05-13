@@ -1,0 +1,13 @@
+{% extends 'navbar_base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h1>축하합니다!</h1>
+<h2>winner list</h2>
+{% for winner in winners %}
+{{winner.ID}} : {{winner}}
+<hr>
+{%endfor%}
+<p>admin 계정이 게임을 다시 시작해야 게임을 진행할 수 있습니다.</p>
+
+<a class="btn btn-primary" href="{% url 'start' %}" role="button">처음으로</a>
+{% endblock %}
