@@ -15,8 +15,9 @@ def start(request):
 
 
 def role(request):
-    if request.user.username == 'chulhee23@likelion.org':
-        global round
+    global round
+    if request.user.username == 'aa':
+        
         round = 0
         # admin 계정이면 새로 게임 시작시 모든 상황 모델 데이터 날리기
         Situation.objects.all().delete()
@@ -41,6 +42,7 @@ def role(request):
             index += 1
         game_open = "game restart!"
     else:
+        round =1 
         game_open = "game 진행중..."
     # user의 동물 받아오기
     kind = request.user.animal

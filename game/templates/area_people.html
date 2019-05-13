@@ -2,47 +2,75 @@
 {% extends 'navbar_base.html' %}
 {% load staticfiles %}
 {% block content %}
-   
 
-    <div class="container">
-        <!-- 내가 어느 지역에 들어왔는지를 보여줌 -->
-        <div class="now_area">
-            
-        </div>
-        <div class="now_people">
-            <div class="빈 grid"> </div>
-     
-         <form method="GET" action="{% url 'situation_create' %}"> 
+
+<div class="container">
+    <!-- 내가 어느 지역에 들어왔는지를 보여줌 -->
+    <!-- <div class="now_area"></div> -->
+    <div class="now_people">
+        <form method="GET" action="{% url 'situation_create' %}">
             <div class="defender">
-                <h3>공격 받은 동물들</h3>
-                {% for animal in allobject %}
-                <input type="radio" name="animal" value="{{animal.ID}}" /> {{animal.ID.username}}
-                <br>
-                
-                {% endfor %}
-                <input type="radio" name="animal" value="{{user}}" />공격안하기
+                <h3 style="font-size: 33px; margin-bottom: 50px;">자신의 역할에 따른 승리조건과 패배조건을 고려하여 공격하세요</h3>
+                <div class="for_grid">
+                    <div clas="빈 그리드"></div>
+                    <div class="list_people">
+                        {% for animal in allobject %}
+                        <input type="radio" name="animal" value="{{animal.ID}}" />
+                        {{animal.ID.username}}
+                        <br>
+                        {% endfor %}
+                        <input type="radio" name="animal" value="{{user}}" /> 공격안하기
+                    </div>
+                    <div clas="빈 그리드"></div>
+                </div>
             </div>
-            <input type="submit" value="공격" >
-        
-            </form>
-           
-
-            <div class="빈 grid"> </div>
-        </div>
     </div>
+    <!-- 공격버튼 -->
+    <div class="button_attack ">
+        <input class="button" type="submit" value="공격하기">
+    </div>
+    </form>
+</div>
+</div>
 
 </body>
 
 <style>
-ul {
-    list-style: none;
-}  
-.now_people {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 100px;
-    text-align: center;
-}
+    ul {
+        list-style: none;
+    }
+    .defender {
+        text-align: center;
+        margin-top: 60px;
+        font-family:  Noto Serif KR;
+        font-size: 33px;
+    }
+    .button_attack {
+        text-align: center;
+        margin-top: 50px; 
+    }
+    .list_people {
+        text-align: left;
+        padding-left: 30px;
+        font-family:  Noto Serif KR;
+        font-size: 25px;
+    }
+    .for_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    input.button {
+        all: unset;
+
+        background-color: #4a7745;
+        border-color:  #4a7745;
+        width: 10%;
+        height: 40px;
+        border-radius: 10px;
+        color: white;
+        font-family:  Noto Serif KR;
+        font-size: 22px;
+    }
 </style>
 
 {% endblock%}
