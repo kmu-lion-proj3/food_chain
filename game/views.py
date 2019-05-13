@@ -7,8 +7,8 @@ from django.contrib import auth
 import random
 
 round
+round_limit = None
 # Create your views here.
-
 
 def start(request):
     return render(request, 'start.html', )
@@ -63,8 +63,12 @@ def choose_area(request):
     if round ==4:
         winners = Animal.objects.filter(life = True)
         return render(request, 'final.html',{'winners': winners})
+    
+    global round_limit
+    if round_limit is None:
+        round_limit=True
+        round += 1
 
-    round += 1
     kind = request.user.animal
     return render(request, 'choose_area.html', {'kind': kind})
 
@@ -119,6 +123,10 @@ def situation_create(request):
 
 def result(request,round):
     round = round
+    global round_limit
+    if round_limit:
+        round_limit = None
+    
     all_situation = Situation.objects.filter(round=round, location=request.user.animal.location)
     return render(request, 'result.html', {'situation': all_situation, 'round': round})
 
